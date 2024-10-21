@@ -1,11 +1,11 @@
 --[[ 
 
 TODO:
- - [ ] Add telescope to obsidian vault?
  - [ ] Add smooth scroll?
  - [ ] Think about s mappings for leap / mini
- - [ ] Add git pluing
+ - [x] Add git pluing
  - [ ] quick shortcut to telescope caput vault
+  - [ ] Add telescope to obsidian vault?
 
 ]]
 --
@@ -19,10 +19,127 @@ TODO:
 
 return {
   -- Color scheme
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+  {
+    'craftzdog/solarized-osaka.nvim',
+    lazy = false,
+    priority = 1000,
+
+    config = function()
+      require('solarized-osaka').setup {
+        transparent = false,
+        -- disable italic for functions
+        styles = {
+          functions = {},
+        },
+        -- sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
+
+        -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+        on_colors = function(colors)
+          -- colors.hint = colors.orange
+          -- colors.error = '#ff0000'
+
+          colors.bg = colors.base04
+          colors.bg_statusline = colors.bg
+        end,
+
+        -- ---@param highlights Highlights
+        -- ---@param colors ColorScheme
+        -- on_highlights = function (hl, colors)
+        --   hl.Telesco
+        -- end
+      }
+
+      vim.cmd.colorscheme 'solarized-osaka'
+    end,
+  },
+  -- {
+  --   'sam4llis/nvim-tundra',
+  --   name = 'tundra',
+  --   priority = 1000,
+  --   config = function()
+  --     require('nvim-tundra').setup {
+  --       transparent_background = false,
+  --       dim_inactive_windows = {
+  --         enabled = false,
+  --         color = nil,
+  --       },
+  --       sidebars = {
+  --         enabled = true,
+  --         color = nil,
+  --       },
+  --       editor = {
+  --         search = {},
+  --         substitute = {},
+  --       },
+  --       syntax = {
+  --         booleans = { bold = true, italic = true },
+  --         comments = { bold = true, italic = true },
+  --         conditionals = {},
+  --         constants = { bold = true },
+  --         fields = {},
+  --         functions = {},
+  --         keywords = {},
+  --         loops = {},
+  --         numbers = { bold = true },
+  --         operators = { bold = true },
+  --         punctuation = {},
+  --         strings = {},
+  --         types = { italic = true },
+  --       },
+  --       diagnostics = {
+  --         errors = {},
+  --         warnings = {},
+  --         information = {},
+  --         hints = {},
+  --       },
+  --       plugins = {
+  --         lsp = true,
+  --         semantic_tokens = true,
+  --         treesitter = true,
+  --         telescope = true,
+  --         nvimtree = true,
+  --         cmp = true,
+  --         context = true,
+  --         dbui = true,
+  --         gitsigns = true,
+  --         neogit = true,
+  --         textfsm = true,
+  --       },
+  --       overwrite = {
+  --         colors = {},
+  --         highlights = {},
+  --       },
+  --     }
+  --
+  --     vim.g.tundra_biome = 'arctic' -- 'arctic' or 'jungle'
+  --     vim.opt.background = 'dark'
+  --     vim.cmd 'colorscheme tundra'
+  --   end,
+  -- },
   { 'xiyaowong/transparent.nvim', opts = {} },
 
-  -- FIXME: gotta fix folding when I have time.
+  -- Session management
+  {
+    'rmagatti/auto-session',
+    lazy = false,
+
+    config = function()
+      vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+      require('auto-session').setup { suppressed_dirs = {} }
+    end,
+
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
+    opts = {
+      suppressed_dirs = {},
+      session_lens = { load_on_setup = true },
+      -- log_level = 'debug',
+    },
+  },
+
+  -- FIXME: gotta fix auto folding when I have time.
   -- {
   --   'kevinhwang91/nvim-ufo',
   --   dependencies = 'kevinhwang91/promise-async',
@@ -66,6 +183,7 @@ return {
     end,
   },
 
+  -- File exploring with Oil
   {
     'stevearc/oil.nvim',
     opts = {},
