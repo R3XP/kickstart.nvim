@@ -19,10 +19,34 @@ TODO:
 
 vim.opt.shiftwidth = 4
 vim.opt.laststatus = 3
+vim.opt.sidescrolloff = 12
+
+vim.opt.diffopt = 'internal,filler,closeoff,algorithm:histogram,linematch:60'
+
+-- Git keymmaps
+vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<CR>', { desc = '[G]it [G]ud (open Neogit)' })
+vim.keymap.set('n', '<leader>gs', '<cmd>Gitsigns preview_hunk_inline<CR>', { desc = '[G]it [S]how hunk' })
+vim.keymap.set('n', '<leader>gS', '<cmd>Gitsigns preview_hunk<CR>', { desc = '[G]it [S]how hunk (popup)' })
+vim.keymap.set('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>', { desc = '[G]it [N]ext Hunk' })
+vim.keymap.set('n', '<leader>gp', '<cmd>Gitsigns prev_hunk<CR>', { desc = '[G]it [P]revious Hunk' })
 
 vim.keymap.set('n', '<leader>tl', function()
   vim.opt.list = not vim.opt.list:get()
 end, { desc = '[T]oggle [L]ist chars' })
+
+local lspconfig = require 'lspconfig'
+
+lspconfig.jsonls.setup {
+  settings = {
+    jsonls = {
+      json = {
+        format = {
+          keepLines = true,
+        },
+      },
+    },
+  },
+}
 
 return {
   -- Color scheme
