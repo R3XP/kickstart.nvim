@@ -150,6 +150,9 @@ return {
   -- },
   { 'xiyaowong/transparent.nvim', opts = {} },
 
+  -- Troubleshooting
+  { 'folke/trouble.nvim', opts = {}, cmd = 'Trouble' },
+
   -- Session management
   {
     'rmagatti/auto-session',
@@ -217,7 +220,11 @@ return {
   -- File exploring with Oil
   {
     'stevearc/oil.nvim',
-    opts = {},
+    opts = {
+      keymaps = {
+        ['Y'] = 'actions.yank_entry',
+      },
+    },
     -- Optional dependencies
     -- dependencies = { { 'echasnovski/mini.icons', opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
