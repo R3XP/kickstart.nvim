@@ -21,6 +21,15 @@ vim.opt.shiftwidth = 4
 vim.opt.laststatus = 3
 vim.opt.sidescrolloff = 12
 
+-- Folds
+vim.opt.fillchars:append { fold = ' ' } -- Leerzeichen verwenden
+vim.api.nvim_set_hl(0, 'Folded', { bg = '#2e3440', fg = '#88c0d0' }) -- Farben anpassen
+local normal_bg = vim.api.nvim_get_hl_by_name('Normal', true).background
+if normal_bg then
+  -- Setze die Hintergrundfarbe von `Folded` entsprechend
+  vim.api.nvim_set_hl(0, 'Folded', { bg = string.format('#%06x', normal_bg), fg = '#a0a0a0', italic = true, bold = true }) -- Passe fg an, falls nötig
+end
+
 vim.opt.diffopt = 'internal,filler,closeoff,algorithm:histogram,linematch:60'
 
 -- Git keymmaps
@@ -29,9 +38,17 @@ vim.keymap.set('n', '<leader>gs', '<cmd>Gitsigns preview_hunk_inline<CR>', { des
 vim.keymap.set('n', '<leader>gS', '<cmd>Gitsigns preview_hunk<CR>', { desc = '[G]it [S]how hunk (popup)' })
 vim.keymap.set('n', '<leader>gn', '<cmd>Gitsigns next_hunk<CR>', { desc = '[G]it [N]ext Hunk' })
 vim.keymap.set('n', '<leader>gp', '<cmd>Gitsigns prev_hunk<CR>', { desc = '[G]it [P]revious Hunk' })
+vim.cmd [[autocmd FileType * set tabstop=4 shiftwidth=4]]
+-- vim.diagnostic.config { virtual_text = false }
 
+-- toggle keymaps
 vim.keymap.set('n', '<leader>tl', function()
   vim.opt.list = not vim.opt.list:get()
+end, { desc = '[T]oggle [L]ist chars' })
+local show_diagnostic_text = true
+vim.keymap.set('n', '<leader>td', function()
+  show_diagnostic_text = not show_diagnostic_text
+  vim.diagnostic.config { virtual_text = show_diagnostic_text }
 end, { desc = '[T]oggle [L]ist chars' })
 
 local lspconfig = require 'lspconfig'
@@ -47,6 +64,10 @@ lspconfig.jsonls.setup {
     },
   },
 }
+vim.keymap.set('n', '<leader>tt', function()
+  vim.opt.tabstop = 4
+  vim.opt.shiftwidth = 4
+end, { desc = '[T]oggle [T]abs' })
 
 return {
   -- Color scheme
@@ -281,4 +302,7 @@ return {
       },
     },
   },
+
+  -- sticky headers with treesitter context
+  { 'nvim-treesitter/nvim-treesitter-context', opts = {} },
 }
