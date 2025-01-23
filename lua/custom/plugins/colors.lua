@@ -1,6 +1,9 @@
 return {
+  { 'xiyaowong/transparent.nvim', opts = {} },
+
   { 'EdenEast/nightfox.nvim', priority = 1000 },
 
+  -- other Color schemes
   {
     'craftzdog/solarized-osaka.nvim',
     lazy = false,
@@ -34,4 +37,70 @@ return {
       vim.cmd.colorscheme 'solarized-osaka'
     end,
   },
+  -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+
+  -- {
+  --   'sam4llis/nvim-tundra',
+  --   name = 'tundra',
+  --   priority = 1000,
+  --   config = function()
+  --     require('nvim-tundra').setup {
+  --       transparent_background = false,
+  --       dim_inactive_windows = {
+  --         enabled = false,
+  --         color = nil,
+  --       },
+  --       sidebars = {
+  --         enabled = true,
+  --         color = nil,
+  --       },
+  --       editor = {
+  --         search = {},
+  --         substitute = {},
+  --       },
+  --       syntax = {
+  --         booleans = { bold = true, italic = true },
+  --         comments = { bold = true, italic = true },
+  --         conditionals = {},
+  --         constants = { bold = true },
+  --         fields = {},
+  --         functions = {},
+  --         keywords = {},
+  --         loops = {},
+  --         numbers = { bold = true },
+  --         operators = { bold = true },
+  --         punctuation = {},
+  --         strings = {},
+  --         types = { italic = true },
+  --       },
+  --       diagnostics = {
+  --         errors = {},
+  --         warnings = {},
+  --         information = {},
+  --         hints = {},
+  --       },
+  --       plugins = {
+  --         lsp = true,
+  --         semantic_tokens = true,
+  --         treesitter = true,
+  --         telescope = true,
+  --         nvimtree = true,
+  --         cmp = true,
+  --         context = true,
+  --         dbui = true,
+  --         gitsigns = true,
+  --         neogit = true,
+  --         textfsm = true,
+  --       },
+  --       overwrite = {
+  --         colors = {},
+  --         highlights = {},
+  --       },
+  --     }
+  --
+  --     vim.g.tundra_biome = 'arctic' -- 'arctic' or 'jungle'
+  --     vim.opt.background = 'dark'
+  --     vim.cmd 'colorscheme tundra'
+  --   end,
+  -- },
 }
