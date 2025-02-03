@@ -11,7 +11,7 @@ return {
 		-- REQUIRED
 
 		-- stylua: ignore start
-		vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end)
+		vim.keymap.set("n", "<leader>bh", function() harpoon:list():add() end, { desc = '[B]uffer [H]arpoon' })
 		vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 		vim.keymap.set("n", "<C-1>", function() harpoon:list():select(1) end)
