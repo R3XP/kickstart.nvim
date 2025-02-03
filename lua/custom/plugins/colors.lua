@@ -3,6 +3,22 @@ return {
 
   { 'EdenEast/nightfox.nvim', priority = 1000 },
 
+  { 'rebelot/kanagawa.nvim' },
+
+  {
+    'sho-87/kanagawa-paper.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  {
+    'ricardoraposo/nightwolf.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
   -- other Color schemes
   {
     'craftzdog/solarized-osaka.nvim',
