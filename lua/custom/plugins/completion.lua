@@ -14,7 +14,12 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = 'default', ['<C-H>'] = { 'snippet_backward', 'fallback' }, ['<C-L>'] = { 'snippet_forward', 'fallback' } },
+      keymap = {
+        preset = 'default',
+        ['<C-H>'] = { 'snippet_backward', 'fallback' },
+        ['<C-L>'] = { 'snippet_forward', 'fallback' },
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      },
 
       appearance = {
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
