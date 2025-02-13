@@ -7,9 +7,6 @@ return {
     layout = 'left_left_bottom',
     position = 'right',
   },
-  keys = { -- load the plugin only when using it's keybinding:
-    { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
-  },
 
   {
     'debugloop/telescope-undo.nvim',
@@ -23,7 +20,7 @@ return {
       { -- lazy style key map
         '<leader>su',
         '<cmd>Telescope undo<cr>',
-        desc = 'undo history',
+        desc = '[U]ndo history',
       },
     },
     opts = {
