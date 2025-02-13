@@ -3,7 +3,13 @@ return {
 
   { 'EdenEast/nightfox.nvim', priority = 1000 },
 
-  { 'rebelot/kanagawa.nvim' },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'kanagawa'
+    end,
+  },
 
   {
     'sho-87/kanagawa-paper.nvim',
@@ -50,7 +56,7 @@ return {
         -- end,
       }
 
-      vim.cmd.colorscheme 'solarized-osaka'
+      -- vim.cmd.colorscheme 'solarized-osaka'
     end,
   },
   -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
