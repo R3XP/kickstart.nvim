@@ -1,7 +1,6 @@
 return {
   'jiaoshijie/undotree',
   dependencies = 'nvim-lua/plenary.nvim',
-  config = true,
   opts = {
     float_diff = false,
     layout = 'left_left_bottom',

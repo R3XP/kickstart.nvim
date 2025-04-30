@@ -29,7 +29,7 @@ bind_cmd('<leader>gp', 'Gitsigns prev_hunk', { desc = '[G]it [P]revious Hunk' })
 
 bind_cmd('<leader>gR', 'Gitsigns reset_hunk', { desc = '[G]it [R]eset Hunk' }, { 'n', 'v' })
 
--- vim.cmd [[autocmd FileType * set tabstop=4 shiftwidth=4]]
+vim.cmd [[autocmd FileType * set tabstop=4 shiftwidth=4]]
 
 -- toggle keymaps
 bind_cmd('<leader>tc', 'TSContextToggle', { desc = '[T]oggle [C]ontext' })

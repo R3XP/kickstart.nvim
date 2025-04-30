@@ -1,11 +1,7 @@
 return {
   {
     name = 'caput',
-    path = 'C:\\caput',
-  },
-  {
-    name = 'pnp',
-    pathm = 'A:\\obsidian-vaults\\DND-5e',
+    path = '~/obsidian/caput/',
   },
 }
 

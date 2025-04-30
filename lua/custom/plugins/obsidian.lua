@@ -20,12 +20,7 @@ return {
   },
 
   opts = {
-    workspaces = {
-      {
-        name = 'caput',
-        path = 'C:\\',
-      },
-    },
-    -- workspaces = require 'custom.obsidian-workspaces',
+    -- workspaces = {},
+    workspaces = require 'custom.obsidian-workspaces',
   },
 }
