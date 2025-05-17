@@ -677,6 +677,7 @@ require('lazy').setup({
             'javascriptreact',
             'typescript',
             'typescriptreact',
+            'svelte',
             'rust', -- wichtig!
           },
           init_options = {

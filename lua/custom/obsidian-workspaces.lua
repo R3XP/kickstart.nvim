@@ -1,7 +1,7 @@
 return {
   {
     name = 'caput',
-    path = '~/obsidian/caput/',
+    path = 'C:\\caput',
   },
 }
 
